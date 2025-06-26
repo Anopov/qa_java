@@ -3,9 +3,9 @@ package com.example;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -44,10 +44,11 @@ class LionTest {
 
     @Test
     void getFoodDefault() throws Exception {
+        List<String> expectedList = List.of("Тест1", "Тест2", "Тест3");
+        Mockito.when(feline.getFood("Хищник")).thenReturn(expectedList);
         Lion lion = new Lion("Самка", feline);
         List<String> actual = lion.getFood();
-        List<String> expected = new ArrayList<>();
-        assertEquals(expected, actual);
+        assertEquals(expectedList, actual);
 
     }
 }

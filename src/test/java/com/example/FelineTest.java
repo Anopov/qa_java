@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
@@ -13,7 +11,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-@RunWith(Parameterized.class)
 class FelineTest {
 
 
@@ -40,9 +37,9 @@ class FelineTest {
 
     @ParameterizedTest
     @ValueSource(ints = {-1,0,1})
-    void getKittensWithArgument(int count) {
+    void getKittensWithArgument(int value) {
         Feline feline = new Feline();
-        int actual = feline.getKittens(count);
-        assertEquals(count, actual);
+        int actual = feline.getKittens(value);
+        assertEquals(value, actual);
     }
 }
